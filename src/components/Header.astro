@@ -1,0 +1,43 @@
+---
+import Button from "@/components/ui/Button.astro";
+import ExternalLink from "./ui/ExternalLink.astro";
+import Navlink from "./ui/Navlink.astro";
+import Dropdown from "./ui/Dropdown.astro";
+---
+
+<header class="w-full flex justify-center bg-blue-100">
+    <div
+        class="w-[1280px] h-[120px] flex items-center justify-between bg-blue-200"
+    >
+        <a href="/">LOGO</a>
+        <nav class="w-[640px] relative">
+            <ul class="flex justify-between">
+                <li>
+                    <Dropdown text="Servicios" options={["monos", "frances"]} />
+                </li>
+                <li>
+                    <Dropdown text="Institucinal" options={["banana", "pan"]} />
+                </li>
+                <li>
+                    <ExternalLink
+                        href="https://polotec.ar/hackathon/"
+                        text="Hackaton"
+                    />
+                </li>
+                <li>
+                    <ExternalLink
+                        href="https://polotec.ar/gaming/"
+                        text="Polo Gaming"
+                    />
+                </li>
+                <li>
+                    <ExternalLink
+                        href="http://www.polotec.ar/campus/"
+                        text="Campus"
+                    />
+                </li>
+            </ul>
+        </nav>
+        <Button variant="primary">Iniciar Sesión</Button>
+    </div>
+</header>

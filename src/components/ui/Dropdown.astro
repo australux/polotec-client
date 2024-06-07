@@ -1,0 +1,32 @@
+---
+import Navlink from "./Navlink.astro";
+import ChevronD from "./svgs/ChevronD.astro";
+
+interface Props {
+    text: string;
+    options: string[];
+}
+
+const { text, options } = Astro.props;
+---
+
+<div class="flex flex-col group transition">
+    <a
+        href="#"
+        class="inline-flex items-center gap-1 font-medium drop-shadow-lg hover:cursor-pointer hover:text-red-600 transition-colors duration-100"
+    >
+        {text}
+        <!-- <ChevronD styles="w-4 h-4 text-red-600" stroke="2.5" /> -->
+    </a>
+    <ul
+        class="flex-col bg-red-500 p-2 gap-2 rounded-md mt-2 opacity-0 max-h-0 overflow-hidden absolute top-full transition-all duration-500 group-hover:max-h-96 group-hover:opacity-100"
+    >
+        {
+            options.map((option) => (
+                <li class="hover:bg-red-400 rounded py-1 px-2 transition-colors duration-100">
+                    <Navlink href={`/${option}`} text={option} />
+                </li>
+            ))
+        }
+    </ul>
+</div>
