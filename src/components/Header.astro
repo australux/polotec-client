@@ -1,15 +1,21 @@
 ---
 import Button from "@/components/ui/Button.astro";
 import ExternalLink from "./ui/ExternalLink.astro";
-import Navlink from "./ui/Navlink.astro";
 import Dropdown from "./ui/Dropdown.astro";
 ---
 
-<header class="w-full flex justify-center bg-blue-100">
-    <div
-        class="w-[1280px] h-[120px] flex items-center justify-between bg-blue-200"
-    >
-        <a href="/">LOGO</a>
+<header
+    class="w-full flex justify-center fixed top-0 z-50 transition-colors duration-300"
+    id="header"
+>
+    <div class="w-[1280px] h-[100px] flex items-center justify-between">
+        <a href="/" class="h-full w-auto">
+            <img
+                src="https://utfs.io/f/aa3ce997-de98-408a-8812-dc2603f549c2-1zbfv.png"
+                alt="Logo Polo Tecnológico"
+                class="h-full"
+            />
+        </a>
         <nav class="w-[640px] relative">
             <ul class="flex justify-between">
                 <li>
@@ -41,3 +47,10 @@ import Dropdown from "./ui/Dropdown.astro";
         <Button variant="primary">Iniciar Sesión</Button>
     </div>
 </header>
+
+<script>
+    const nav = document.querySelector("#header");
+    window.onscroll = () => {
+        nav?.classList.toggle("bg-[#fecacaf2]", window.scrollY > 120);
+    };
+</script>

@@ -1,7 +1,94 @@
 ---
+import ImageLink from "@/components/ui/ImageLink.astro";
+import Hero from "@/components/ui/svgs/Hero.astro";
+import NewsCard from "@/components/NewsCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-    <h1>Astro</h1>
+    <section class="w-[1280px] grid grid-cols-[1fr_2fr] py-14">
+        <div class="h-full flex items-center">
+            <h1 class="text-8xl font-black">
+                Polo Tecnológico
+                <span
+                    class="bg-gradient-to-r from-pink-900 to-red-500 text-transparent bg-clip-text"
+                    >La Rioja</span
+                >
+            </h1>
+        </div>
+        <div class="h-full w-full flex items-center">
+            <Hero styles="w-11/12 h-11/12" />
+        </div>
+    </section>
+    <section class="w-full flex flex-col items-center py-10 bg-red-500">
+        <div class="w-[1280px] flex flex-col gap-10">
+            <h2 class="text-white text-5xl font-bold">Novedades</h2>
+            <div
+                class="border-x px-4 border-red-300 grid grid-cols-2 items-center gap-4"
+            >
+                <NewsCard />
+                <NewsCard />
+                <NewsCard />
+                <NewsCard />
+            </div>
+        </div>
+    </section>
+    <section class="w-[1280px] grid grid-cols-4 gap-24 py-24">
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/e9ca8623-7288-4927-b6cf-7e8c72d584ac-nopvrt.png"
+                alt="Logo del Gobierno de La Rioja"
+                class="max-h-20"
+            />
+        </ImageLink>
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/a8baa7bb-721f-4afb-b602-5d29c4123a19-bm7xi.png"
+                alt="Logo UNLaR"
+                class="max-h-20"
+            />
+        </ImageLink>
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/833b1f81-c156-4c29-b8e7-3d5432261b68-2hm7.png"
+                alt="Logo UTN"
+                class="max-h-16"
+            />
+        </ImageLink>
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/d977dbd4-2b40-475d-bca8-f8cb73adf977-md1l6l.png"
+                alt="Logo CRILAR CONICET"
+                class="max-h-44"
+            />
+        </ImageLink>
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/5ab0c269-5113-46ac-9013-c64a88236597-1xe1e.png"
+                alt="Logo INTA"
+                class="max-h-24"
+            />
+        </ImageLink>
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/746debfb-6f79-47a3-b1d9-7c8dac122808-1xe1m.png"
+                alt="Logo INTI"
+                class="max-h-24"
+            />
+        </ImageLink>
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/eedba0e7-fb0e-436c-b1c1-6f5789115475-5nwwc1.png"
+                alt="Logo Instituto de Servicios Ambientales"
+                class="max-h-24"
+            />
+        </ImageLink>
+        <ImageLink href="">
+            <img
+                src="https://utfs.io/f/bee82933-4b21-469c-a62d-2549ced99924-mk3jy2.png"
+                alt="Logo CENTEC"
+                class="max-h-24"
+            />
+        </ImageLink>
+    </section>
 </BaseLayout>
