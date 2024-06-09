@@ -2,7 +2,9 @@
 import ImageLink from "@/components/ui/ImageLink.astro";
 import Hero from "@/components/ui/svgs/Hero.astro";
 import NewsCard from "@/components/NewsCard.astro";
+import CourseCard from "@/components/CourseCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Slideshow } from "@/components/Slideshow";
 ---
 
 <BaseLayout>
@@ -20,20 +22,36 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
             <Hero styles="w-11/12 h-11/12" />
         </div>
     </section>
+
     <section class="w-full flex flex-col items-center py-10 bg-red-500">
-        <div class="w-[1280px] flex flex-col gap-10">
+        <div
+            class="w-[1280px] flex flex-col gap-12 border-x px-4 border-red-300"
+        >
             <h2 class="text-white text-5xl font-bold">Novedades</h2>
-            <div
-                class="border-x px-4 border-red-300 grid grid-cols-2 items-center gap-4"
-            >
+            <div class="grid grid-cols-2 items-center gap-4">
                 <NewsCard />
                 <NewsCard />
                 <NewsCard />
                 <NewsCard />
             </div>
+
+            <div>
+                <Slideshow client:visible />
+            </div>
+
+            <h2 class="text-white text-5xl font-bold">
+                Plan de Formación con Empleabilidad 2024
+            </h2>
+            <div class="grid grid-cols-4 gap-4">
+                <CourseCard />
+                <CourseCard />
+                <CourseCard />
+                <CourseCard />
+            </div>
         </div>
     </section>
-    <section class="w-[1280px] grid grid-cols-4 gap-24 py-24">
+
+    <section class="w-[1280px] grid grid-cols-4 gap-24 pt-16 pb-24">
         <ImageLink href="">
             <img
                 src="https://utfs.io/f/e9ca8623-7288-4927-b6cf-7e8c72d584ac-nopvrt.png"
