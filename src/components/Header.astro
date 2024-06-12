@@ -5,7 +5,7 @@ import Dropdown from "./ui/Dropdown.astro";
 ---
 
 <header
-    class="w-full flex justify-center fixed top-0 z-50 transition-colors duration-300"
+    class="w-full flex justify-center transition-colors duration-500"
     id="header"
 >
     <div class="w-[1280px] h-[100px] flex items-center justify-between">
@@ -16,13 +16,32 @@ import Dropdown from "./ui/Dropdown.astro";
                 class="h-full"
             />
         </a>
-        <nav class="w-[640px] relative">
+        <nav class="w-2/3 relative">
             <ul class="flex justify-between">
                 <li>
-                    <Dropdown text="Servicios" options={["monos", "frances"]} />
+                    <Dropdown
+                        text="Servicios"
+                        options={[
+                            "calendario",
+                            "beneficios provinciales",
+                            "oportunidades tecno",
+                            "incubadora de empresas",
+                            "ideas proyecto",
+                            "facilidades de financiamiento",
+                        ]}
+                    />
                 </li>
                 <li>
-                    <Dropdown text="Institucinal" options={["banana", "pan"]} />
+                    <Dropdown
+                        text="Institucional"
+                        options={["autoridades", "acerca del polo", "contacto"]}
+                    />
+                </li>
+                <li>
+                    <ExternalLink
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSfe8OBH78KVZ1GIIyaFAlkfTEyH0jyo5JZ2DpyY_gFY2Xfsgw/viewform"
+                        text="Reg. de Emprendedores"
+                    />
                 </li>
                 <li>
                     <ExternalLink
@@ -48,9 +67,9 @@ import Dropdown from "./ui/Dropdown.astro";
     </div>
 </header>
 
-<script>
+<!-- <script>
     const nav = document.querySelector("#header");
     window.onscroll = () => {
-        nav?.classList.toggle("bg-[#fecacaf2]", window.scrollY > 120);
+        nav?.classList.toggle("bg-[#fee2e2]", window.scrollY > 40);
     };
-</script>
+</script> -->

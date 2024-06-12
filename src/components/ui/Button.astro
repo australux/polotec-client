@@ -15,11 +15,12 @@ if (variant == "secondary") {
 } else {
     bgColor = "bg-red-500";
     textColor = "text-white";
-    hover = "hover:ring hover:ring-red-100";
+    hover = "hover:ring hover:ring-red-300";
 }
 ---
 
 <button
+    onclick="location.href = '/login'"
     class=`inline-flex px-4 py-2 text-sm ${bgColor} ${textColor} ${hover} rounded-full drop-shadow-lg transition duration-150 font-medium`
 >
     <slot />

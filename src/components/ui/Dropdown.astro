@@ -13,7 +13,7 @@ const { text, options } = Astro.props;
 <div class="flex flex-col group transition">
     <a
         href="#"
-        class="inline-flex items-center gap-1 font-medium drop-shadow-lg hover:cursor-pointer hover:text-red-600 transition-colors duration-100"
+        class="inline-flex items-center gap-1 drop-shadow hover:cursor-pointer hover:text-red-600 transition-colors duration-100"
     >
         {text}
         <!-- <ChevronD styles="w-4 h-4 text-red-600" stroke="2.5" /> -->
@@ -25,8 +25,11 @@ const { text, options } = Astro.props;
         {
             options.map((option) => (
                 <>
-                    <li class="hover:bg-red-400 rounded py-1 px-2 transition-colors duration-100">
-                        <Navlink href={`/${option}`} text={option} />
+                    <li class="hover:bg-red-400 rounded py-1 px-2 transition-colors duration-100 text-sm">
+                        <Navlink
+                            href={`/${option.replaceAll(" ", "-")}`}
+                            text={option}
+                        />
                     </li>
                 </>
             ))

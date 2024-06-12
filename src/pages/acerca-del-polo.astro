@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const title = "Acerca del Polo";
+---
+
+<BaseLayout title={title}>
+    <section
+        class="h-full w-[1280px] flex flex-col justify-center gap-10 py-10"
+    >
+        <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <div
+            class="grid grid-cols-2 gap-4 p-4 border border-red-200 rounded-3xl"
+        >
+            <img
+                src="https://www.elindependiente.com.ar/elindependiente/1.0/img/943310304.jpg"
+                alt="polo tecnológico"
+                class="rounded-lg"
+            />
+            <div class="flex flex-col justify-evenly">
+                <p class="text-lg">
+                    El Polo Tecnológico La Rioja, tendrá como misión constituir
+                    una plataforma de servicios, articulación y vinculación
+                    proactivas, en el que los sectores científico-tecnológico,
+                    académico, gubernamental y privados empresariales y
+                    cooperativos se asocien para apoyar la creación, el
+                    desarrollo y el crecimiento de empresas de base tecnológica
+                    con elevado perfil innovador.
+                </p>
+                <p class="text-lg">
+                    El objetivo del Polo Tecnológico La Rioja es contribuir al
+                    desarrollo de la Provincia como referencia en innovación
+                    tecnológica mediante la cooperación interinstitucional de
+                    actores públicos y privados vinculados al mundo de la
+                    producción y el conocimiento, potenciando así su desarrollo
+                    socioeconómico a partir de la consolidación de las cadenas
+                    de valor existentes y la incorporación de nuevas que amplíen
+                    su matriz productiva, preservando la sustentabilidad del
+                    sistema, priorizando la generación de empleos de calidad y
+                    complementándose con las estructuras ya existentes.
+                </p>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

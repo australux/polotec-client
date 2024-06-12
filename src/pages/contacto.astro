@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MapPin from "@/components/ui/svgs/MapPin.astro";
+import Envelope from "@/components/ui/svgs/Envelope.astro";
+import Phone from "@/components/ui/svgs/Phone.astro";
+
+const title = "Contacto";
+---
+
+<BaseLayout title={title}>
+    <section
+        class="h-full w-[1280px] flex flex-col justify-center gap-10 py-10"
+    >
+        <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <div
+            class="grid grid-cols-[1.5fr_1fr] gap-4 bg-red-600 rounded-3xl p-4 shadow-md"
+        >
+            <div class="flex flex-col gap-8 justify-end">
+                <p class="inline-flex items-center gap-2 text-xl text-white">
+                    <MapPin styles="w-7 text-red-300" stroke="1.3" /> Santa Fe y
+                    Copiapó, Ciudad de La Rioja
+                </p>
+                <p class="inline-flex items-center gap-2 text-xl text-white">
+                    <Phone styles="w-7 text-red-300" stroke="1.3" /> +54 9 3804 588812
+                </p>
+                <p class="inline-flex items-center gap-2 text-xl text-white">
+                    <Envelope styles="w-7 text-red-300" stroke="1.3" /> info@polotec.ar
+                </p>
+            </div>
+            <img
+                src="https://www.elindependiente.com.ar/elindependiente/1.0/img/943310304.jpg"
+                alt="polo tecnológico"
+                class="rounded-lg"
+            />
+        </div>
+    </section>
+</BaseLayout>

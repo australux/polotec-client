@@ -1,0 +1,21 @@
+---
+import PersonalCard from "@/components/PersonalCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const title = "Autoridades";
+---
+
+<BaseLayout title={title}>
+    <section
+        class="h-full w-[1280px] flex flex-col justify-center gap-10 py-10"
+    >
+        <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <div class="grid grid-cols-3 gap-20">
+            <PersonalCard />
+            <PersonalCard />
+            <PersonalCard />
+            <PersonalCard />
+            <PersonalCard />
+        </div>
+    </section>
+</BaseLayout>

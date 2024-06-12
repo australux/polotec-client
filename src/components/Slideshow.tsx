@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Image from "astro/components/Image.astro";
 
 const delay = 5000;
 
