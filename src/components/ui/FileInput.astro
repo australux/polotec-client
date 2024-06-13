@@ -1,0 +1,15 @@
+---
+interface Props {
+    name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<input
+    type="file"
+    name={name}
+    id={name}
+    accept="image/*, .pdf"
+    class="w-min text-sm file:bg-transparent file:border-solid file:border-2 file:border-red-500 file:px-4 file:py-2 file:text-red-500 file:rounded-full file:hover:cursor-pointer file:hover:bg-red-600 file:hover:text-white file:hover:border-red-500 file:transition-colors file:duration-150"
+/>

@@ -1,11 +1,79 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Select from "@/components/ui/Select.astro";
+import Textarea from "@/components/ui/Textarea.astro";
+import Button from "@/components/ui/Button.astro";
+import Send from "@/components/ui/svgs/Send.astro";
 
 const title = "Incubadora de Empresas";
 ---
 
 <BaseLayout title={title}>
-    <section class="h-full w-[1280px] flex flex-col justify-center py-10">
+    <section class="h-full w-[1280px] flex flex-col justify-center py-10 gap-6">
         <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <div class="flex flex-col gap-2 items-center">
+            <div class="flex flex-col items-center gap-6 w-3/5">
+                <h2 class="text-xl font-semibold text-gray-700">
+                    Solicitud de servicios
+                </h2>
+
+                <form
+                    class="flex flex-col gap-8 p-8 bg-white rounded-3xl w-full"
+                >
+                    <div class="flex flex-col gap-2">
+                        <label for="servicio-solicitado" class="text-gray-700">
+                            Servicio solicitado:
+                        </label>
+                        <Select name="servicio-solicitado">
+                            <option selected hidden></option>
+                            <option value="coworking">Coworking</option>
+                            <option value="asesoramiento legal">
+                                Asesoramiento legal
+                            </option>
+                            <option
+                                value="asesoramiento administrativo contable"
+                            >
+                                Asesoramiento administrativo contable
+                            </option>
+                            <option
+                                value="asesoramiento en comercialización/marketing"
+                            >
+                                Asesoramiento en comercialización/marketing
+                            </option>
+                            <option value="asesoramiento económico financiero">
+                                Asesoramiento económico financiero
+                            </option>
+                            <option value="asesoramiento ambiental">
+                                Asesoramiento ambiental
+                            </option>
+                            <option value="asesoramiento tecnológico">
+                                Asesoramiento tecnológico
+                            </option>
+                        </Select>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="detalle-asistencia" class="text-gray-700">
+                            Detalle de la asistencia solicitada:
+                        </label>
+                        <Textarea name="detalle-asistencia" />
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="fundamentacion" class="text-gray-700">
+                            Fundamente por qué y para qué solicita el servicio:
+                        </label>
+                        <Textarea name="fundamentacion" />
+                    </div>
+                    <div class="flex justify-end">
+                        <Button variant="secondary">
+                            Enviar
+                            <Send
+                                styles="text-red-500 w-5 h-5 group-hover:text-white transition-color duration-150"
+                                stroke="1.5"
+                            />
+                        </Button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 </BaseLayout>

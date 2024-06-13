@@ -20,7 +20,7 @@ const { text, options } = Astro.props;
     </a>
 
     <ul
-        class="flex-col bg-red-500 p-2 gap-2 rounded-md mt-2 opacity-0 max-h-0 overflow-hidden absolute top-full transition-all duration-500 group-hover:max-h-96 group-hover:opacity-100"
+        class="flex-col bg-red-500 p-2 gap-2 rounded-md mt-2 opacity-0 max-h-0 overflow-hidden absolute top-full z-50 transition-all duration-500 group-hover:max-h-96 group-hover:opacity-100"
     >
         {
             options.map((option) => (

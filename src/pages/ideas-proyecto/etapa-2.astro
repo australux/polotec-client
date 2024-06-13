@@ -1,0 +1,427 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Details from "@/components/ui/Details.astro";
+import FileInput from "@/components/ui/FileInput.astro";
+import Input from "@/components/ui/Input.astro";
+import Select from "@/components/ui/Select.astro";
+import Textarea from "@/components/ui/Textarea.astro";
+import Send from "@/components/ui/svgs/Send.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const title = "Ideas Proyecto | Etapa 2";
+
+// fetchear proyectos de base de datos
+const proyectos = ["Proyecto de prueba"];
+---
+
+<BaseLayout title={title}>
+    <section class="h-full w-[1280px] flex flex-col justify-center py-10 gap-6">
+        <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <div class="flex flex-col gap-2 items-center">
+            <div class="flex flex-col items-center w-4/5">
+                <form
+                    class="flex flex-col gap-8 p-8 bg-white rounded-3xl w-full"
+                >
+                    <div class="flex flex-col gap-2">
+                        <label for="nombre de proyecto">
+                            Seleccione su proyecto cargado en la etapa 1
+                        </label>
+                        <Select name="nombre de proyecto">
+                            <option value="" selected hidden></option>
+                            {
+                                proyectos.map((proyecto) => (
+                                    <option value={proyecto}>{proyecto}</option>
+                                ))
+                            }
+                        </Select>
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="matrices de actores, arbol de problemas y objetivos"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            11. Matrices de actores, Arbol de problemas y
+                            Objetivos
+                        </label>
+                        <span class="text-sm flex flex-col gap-2">
+                            Incluye el análisis de todos los actores
+                            involucrados en el proyecto, la identificación de
+                            las causas que originan el mismo y la definición de
+                            objetivos.
+                            <span>
+                                La matriz de actores deberá incluir los
+                                siguientes elementos: denominación de los
+                                actores involucrados en el proyecto, intereses,
+                                disponibilidad de recursos (alta/media/baja),
+                                posición frente al proyecto (aliado/opositor),
+                                potenciales conflictos y/o consensos, estrategia
+                                para maximizar el apoyo del actor.
+                            </span>
+                            <span>
+                                El árbol de problemas deberá incluir en el medio
+                                el problema central que busca atender el
+                                proyecto, hacia abajo (raíces) se deberán
+                                incluir todas las causas que originan la
+                                problemática y hacia arriba (ramas) los
+                                efectos/consecuencias de la misma, incluyendo
+                                flechas que muestren las mencionadas relaciones
+                                de causa-efecto.
+                            </span>
+                            <span>
+                                El árbol de objetivos deberá transformar las
+                                condiciones negativas del árbol de problemas a
+                                condiciones positivas que se estime que son
+                                deseadas y viables de ser alcanzadas. De este
+                                modo todas las que eran causas en el árbol de
+                                problemas se transforman en medios (componentes)
+                                en el árbol de objetivos, los que eran efectos
+                                se transforman en fines y lo que era el problema
+                                central se convierte en el objetivo central o
+                                propósito del proyecto.
+                            </span>
+                        </span>
+                        <FileInput
+                            name="matrices de actores, arbol de problemas y objetivo"
+                        />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="situación sin proyecto"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            12. Situación sin proyecto
+                            <Details
+                                text="Describe el escenario existente y sus consecuencias si no se implementara el proyecto. Explicitar tanto aspectos técnicos como socioeconómicos."
+                            />
+                        </label>
+                        <Textarea name="situación sin proyecto" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="descripción técnica proyecto"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            13. Descripción técnica proyecto
+                            <Details
+                                text="Explica los conceptos y elementos necesarios para comprender la solución técnica del proyecto, su magnitud y nivel de complejidad. Incluir un análisis de las alternativas que se identificaron para solucionar el problema central que origina el proyecto y el criterio que fundamentó la selección de la alternativa que se presenta como solución técnica en el proyecto."
+                            />
+                        </label>
+                        <Textarea name="descripción técnica proyecto" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="matriz de marco lógico"
+                            class="text-gray-700 flex flex-col gap-2"
+                        >
+                            14. Matriz de marco lógico
+                        </label>
+
+                        <span class="text-sm flex flex-col gap-2">
+                            Incluye descripción del fin, propósito, componentes
+                            y actividades del proyecto, indicadores con su
+                            correspondiente meta y línea base, medios de
+                            verificación y supuestos.
+                            <span class="font-medium text-red-600">
+                                Las filas de la matriz deberán describir los
+                                siguientes elementos:
+                            </span>
+                            <ol
+                                class="list-inside list-disc flex flex-col gap-2"
+                            >
+                                <li>
+                                    <span class="font-semibold">
+                                        Fin:
+                                    </span>objetivo macro al que contribuye la
+                                    ejecución del presente proyecto. El logro
+                                    del fin no depende sólo de la ejecución del
+                                    presente proyecto sino también de la
+                                    ejecución de otros programas/proyectos. Su
+                                    denominación deberá incluir el verbo en
+                                    infinitivo.
+                                </li>
+                                <li>
+                                    <span class="font-semibold">
+                                        Propósito:
+                                    </span>Objetivo a lograr mediante la
+                                    ejecución del presente proyecto, el cual
+                                    soluciona el problema central que da origen
+                                    al proyecto. Su denominación deberá incluir
+                                    el verbo en infinitivo.
+                                </li>
+                                <li>
+                                    <span class="font-semibold">
+                                        Componentes:
+                                    </span>Elementos a desarrollar/ejecutar para
+                                    posibilitar el logro del propósito del
+                                    proyecto. Deberían dar respuesta a las
+                                    causas que originan el problema central u
+                                    oportunidad a atender por medio del
+                                    proyecto. Debe corresponder a lo colocado en
+                                    el punto 3 del presente formulario. Su
+                                    denominación deberá asumir que el componente
+                                    se ha ejecutado (por ejemplo: obra
+                                    construida, participantes capacitados,
+                                    equipamiento instalado, etc.).
+                                </li>
+                                <li>
+                                    <span class="font-semibold">
+                                        Actividades:
+                                    </span>Se refiere al grupo de tareas
+                                    necesarias para desarrollar/ejecutar cada
+                                    componente. Su denominación deberá
+                                    transformar el verbo en sustantivo (por
+                                    ejemplo: realización del diseño, dictado de
+                                    las capacitaciones, etc.)
+                                </li>
+                            </ol>
+                            <span class="font-medium text-red-600">
+                                Las columnas de la matriz deberán permitir
+                                completar los siguientes aspectos para cada
+                                elemento de la fila:
+                            </span>
+                            <ol
+                                class="list-inside list-disc flex flex-col gap-2"
+                            >
+                                <li>
+                                    <span class="font-semibold">
+                                        Indicadores:
+                                    </span>Completar colocando cómo se medirá el
+                                    avance/cumplimiento del fin, propósito y
+                                    componentes. Establecer línea de base
+                                    (situación actual) y meta (situación
+                                    deseada) para cada indicador. Por ejemplo:
+                                    cantidad de capacitaciones dictadas (línea
+                                    base: 0; meta: 10), cantidad de equipamiento
+                                    adquirido (línea base: 2 equipos similares
+                                    disponibles; meta: 30), porcentaje de obra
+                                    ejecutada (línea base: 20%; meta: 100%),
+                                    etc. Cabe aclarar que para la fila de
+                                    actividades los indicadores serán los
+                                    recursos/costos estimados para ejecutarlas y
+                                    la fecha límite para su realización.
+                                </li>
+                                <li>
+                                    <span class="font-semibold">
+                                        Medios de verificación:
+                                    </span>Completar colocando de qué fuente y
+                                    en qué forma se obtienen los datos para
+                                    verificar el cumplimiento de las metas de
+                                    los indicadores. Los medios de verificación
+                                    deben ser informaciones oficiales,
+                                    respaldada por la institución como
+                                    información pública y válida. Pueden
+                                    tratarse de informes difundidos por
+                                    instituciones reconocidas o informes de
+                                    relevamientos/registros realizados
+                                    específicamente para el proyecto.
+                                </li>
+                                <li>
+                                    <span class="font-semibold">
+                                        Supuestos:
+                                    </span>Completar colocando las condiciones
+                                    (factores no controlables por el equipo del
+                                    proyecto) que deben darse para que se
+                                    implemente exitosamente el proyecto. La
+                                    definición de los supuestos se sustenta en:
+                                    i) los análisis de las experiencias pasadas
+                                    en programas/proyectos similares, ii) de las
+                                    variables del entorno nacional (económico,
+                                    social y político) que son medidas
+                                    periódicamente y iii) de variables globales
+                                    que en la actualidad están influyendo con
+                                    mayor fuerza en las actividades nacionales.
+                                    Aunque para la definición de supuestos se
+                                    realice un ejercicio de identificación de
+                                    riesgos, se deberán colocar los supuestos
+                                    como afirmaciones positivas (por ejemplo: si
+                                    el riesgo consiste en la pérdida de
+                                    asistencia técnica brindada por una
+                                    institución extranjera, el supuesto
+                                    consistirá en la continuidad de la
+                                    asistencia técnica brindada por la
+                                    institución).
+                                </li>
+                            </ol>
+                            <span class="font-medium">
+                                Deberá verificarse la existencia de coherencia
+                                al leerse la matriz de abajo hacia arriba y de
+                                arriba hacia abajo, de modo que no exista ningún
+                                elemento que no contribuya y/o sea necesario
+                                para atender el propósito y fin del proyecto, ni
+                                tampoco puedan identificarse elementos
+                                necesarios para completar el proyecto que se
+                                hayan omitido.
+                            </span>
+                            <span class="font-medium">
+                                Dado que la matriz de marco lógico contribuye a
+                                definir el trabajo necesario para completar el
+                                proyecto, constituye la base para elaborar el
+                                presupuesto del proyecto (deberá existir
+                                consistencia entre la matriz y el presupuesto).
+                                Asimismo, permite verificar el cumplimiento del
+                                objetivo/propósito del proyecto y el adecuado
+                                uso de los recursos para ello.
+                            </span>
+                        </span>
+                        <FileInput name="matriz de marco lógico" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="presupuesto"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            15. Presupuesto y Matriz de Financiamiento
+                            <Details
+                                text="El presupuesto deberá presentar un detalle de costos por componentes y las principales actividades necesarias para desarrollarlos, explicando cómo se realizó su cálculo/estimación, como así también la fecha de referencia de los precios tomados para ello. Se deberá incluir y discriminar una “reserva por contingencia” sustentada en un análisis de riesgos. La matriz de financiamiento incluirá como mínimo una columna para los costos totales, otra para el monto que financiará la contrapartida local, y otra para el monto a ser financiado por la fuente externa, con los correspondientes totales generales por fuente de financiamiento y total proyecto."
+                            />
+                        </label>
+                        <span class="text-sm">
+                            Incluye el detalle de los costos necesarios para
+                            ejecutar el proyecto, como así también la proporción
+                            en que la contrapartida y organismos financiadores
+                            aportarán los recursos económicos necesarios.
+                        </span>
+                        <FileInput name="presupuesto" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="evaluación financiera"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            16. Evaluación financiera y/o socioeconómica
+                        </label>
+                        <span class="text-sm flex flex-col gap-2">
+                            La evaluación financiera contempla el cálculo del
+                            Valor actual Neto y Tasa Interna de Retorno, como
+                            así también la estimación del flujo de fondos en el
+                            cual se basa la elaboración de los mencionados
+                            indicadores. La evaluación socioeconómica contempla
+                            el cálculo del Valor actual Neto socioeconómico y
+                            Tasa Interna de Retorno socioeconómica, como así
+                            también la estimación del flujo de fondos en el cual
+                            se basa la elaboración de los mencionados
+                            indicadores.
+                            <ol
+                                class="list-inside list-disc flex flex-col gap-2"
+                            >
+                                <li>
+                                    El flujo de fondos deberá incluir la
+                                    inversión inicial (total presupuesto del
+                                    proyecto) como costo en el año “cero”, y
+                                    luego estimar los ingresos y costos
+                                    operativos por un período mínimo de cinco
+                                    años (período que dependerá del tipo de
+                                    proyecto).
+                                </li>
+                                <li>
+                                    Se deberá detallar el cálculo realizado para
+                                    la estimación de los ingresos y costos
+                                    operativos, explicando por ejemplo cuando
+                                    los ingresos correspondan a ahorros por
+                                    disminución de costos derivados de la
+                                    ejecución del proyecto.
+                                </li>
+                                <li>
+                                    El flujo de fondos deberá incluir cómo
+                                    mínimo las siguientes filas: Ingresos,
+                                    Costos, Utilidad antes de impuesto,
+                                    Impuestos, Utilidad Neta de Impuestos.
+                                </li>
+                                <li>
+                                    El cálculo del Valor Actual Neto y Tasa
+                                    Interna de Retorno se realizará sobre la
+                                    fila Utilidad Neta de Impuesto.
+                                </li>
+                            </ol>
+                            <span
+                                >Se deberá explicitar cuál es la tasa de
+                                descuento utilizada (por ejemplo: tasa de plazo
+                                fijo del Banco Nación vigente al día…) y la
+                                fecha a la que corresponden los precios tomados
+                                para la estimación de ingresos y costos.</span
+                            >
+                            <span
+                                >Para la evaluación socioeconómica, se deberán
+                                incluir en los ingresos y costos las
+                                externalidades positivas y negativas derivadas
+                                de la ejecución del proyecto, explicando cómo se
+                                realizó su cuantificación (por ejemplo:
+                                dinamización de la economía local por incremento
+                                de la demanda a proveedores locales).</span
+                            >
+                        </span>
+                        <FileInput name="evaluación financiera" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="análisis jurídico"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            17. Análisis jurídico
+                            <Details
+                                text="Incluye el marco normativo aplicable al proyecto, tanto en lo referente a su contenido, como a su ejecución. Se deberá explicitar toda la normativa que aplica al proyecto y su jerarquía en caso de conflicto entre la misma. En caso de corresponder, anexar la normativa o colocar su link de acceso."
+                            />
+                        </label>
+                        <Textarea name="análisis jurídico" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="análisis ambiental"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            11. Análisis ambiental
+                            <Details
+                                text="Contempla la previsión del impacto ambiental derivado de la ejecución del proyecto en su área de influencia directa y, de corresponder, la mitigación de daños y la optimización del uso de los recursos naturales. Deberán indicarse en el proyecto las certificaciones requeridas por los organismos competentes en materia ambiental y la disponibilidad de las mismas. En caso de corresponder, anexar la documentación."
+                            />
+                        </label>
+                        <FileInput name="análisis ambiental" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="información específica"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            19. Información específica
+                            <Details
+                                text="Incluye las especificidades geográficas, económicas, sociales y culturales del territorio en el que está ubicado el proyecto y contempla los cambios que se producirán en el área de influencia que puedan afectar las condiciones de vida de la población, en lo referido a aspectos demográficos, salud, empleo, pobreza, calidad de vida y bienestar social."
+                            />
+                        </label>
+                        <Textarea name="información específica" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="otro"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            20. Otro
+                            <Details
+                                text="Contempla cualquier otra información necesaria para comprender el alcance y complejidad del proyecto."
+                            />
+                        </label>
+                        <Textarea name="otro" />
+                    </div>
+
+                    <div class="flex justify-end">
+                        <Button variant="secondary">
+                            Enviar
+                            <Send
+                                styles="text-red-500 w-5 h-5 group-hover:text-white transition-color duration-150"
+                                stroke="1.5"
+                            />
+                        </Button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

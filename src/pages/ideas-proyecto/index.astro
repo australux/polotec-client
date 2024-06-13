@@ -1,0 +1,223 @@
+---
+import Button from "@/components/ui/Button.astro";
+import Details from "@/components/ui/Details.astro";
+import Input from "@/components/ui/Input.astro";
+import Select from "@/components/ui/Select.astro";
+import Textarea from "@/components/ui/Textarea.astro";
+import Send from "@/components/ui/svgs/Send.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const title = "Ideas Proyecto";
+---
+
+<BaseLayout title={title}>
+    <section class="h-full w-[1280px] flex flex-col justify-center py-10 gap-6">
+        <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <span class="text-lg font-medium">
+            ¿Ha completado la etapa 1?
+            <a href="/ideas-proyecto/etapa-2" class="text-red-500">
+                Ir a etapa 2
+            </a>
+        </span>
+        <div class="flex flex-col gap-2 items-center">
+            <div class="flex flex-col items-center w-4/5">
+                <form
+                    class="flex flex-col gap-8 p-8 bg-white rounded-3xl w-full"
+                >
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="titulo de proyecto"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            1. Título del proyecto
+                            <Details
+                                text="Denominación del proyecto. Debe hacer referencia a la actividad principal a la que refiere la ejecución del proyecto. Por ejemplo: implementación de…, diseño de…desarrollo de…fortalecimiento de…, elaboración de…, etc."
+                            />
+                        </label>
+                        <Input type="text" name="titulo de proyecto" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="objetivo"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            2. Objetivo
+                            <Details
+                                text="Propósito del proyecto. Se refiere al logro particular que se obtendrá por medio de la ejecución del proyecto. En lo posible colocar un breve diagnóstico del problema u oportunidad que origina el proyecto. En el caso que corresponda, explicitar si el proyecto se refiere a una innovación local, regional o internacional."
+                            />
+                        </label>
+                        <Textarea name="objetivo" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="componentes"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            3. Componentes
+                            <Details
+                                text="Breve resumen de los elementos necesarios para la ejecución del proyecto, tales como equipamiento, insumos, capacitación o asistencia técnica, entre otros. Incluir una breve descripción por componente, lo cual permita tener una visión general sobre las principales actividades necesarias para ejecutar el proyecto."
+                            />
+                        </label>
+                        <Textarea name="componentes" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="beneficios"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            4. Beneficios
+                            <Details
+                                text="Información sobre la contribución directa e indirecta del proyecto a la comunidad destinataria, tanto técnicos como socioeconómicos. Incluir cantidad de beneficiarios por tipo. Explicitar impactos ambientales y sociales (positivos y/o negativos) generados por el proyecto. Indicar si el proyecto presenta un enfoque a cuestiones de género y/o de pueblos originarios, impacto en exportaciones o sustituciones de importaciones, generación de empleo genuino, etc."
+                            />
+                        </label>
+                        <Textarea name="beneficios" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="cobertura y localización"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            5. Cobertura y Localización
+                            <Details
+                                text="Definición del alcance geográfico del proyecto. Explicitar las localidades comprendidas por el proyecto y cantidad de habitantes de cada una de ellas y/o características relevantes. En lo posible incluir un mapa donde se marquen las localidades incluidas en el alcance geográfico."
+                            />
+                        </label>
+                        <Textarea name="cobertura y localización" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="monto"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            6. Monto
+                            <Details
+                                text="Suma total necesaria para ejecutar el proyecto. Incluir subtotal por componente, explicando cómo se realizó la estimación de costos de cada uno de ellos, como así también la fecha de referencia de los mismos."
+                            />
+                        </label>
+                        <Textarea name="monto" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="plazo"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            7. Plazo
+                            <Details
+                                text="Tiempo total necesario para ejecutar el proyecto. Colocar el total de meses necesarios para completar todos los componentes del proyecto y alcanzar el objetivo del mismo."
+                            />
+                        </label>
+                        <Textarea name="plazo" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="alineamiento estratégico"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            8. Alineamiento Estratégico
+                            <Details
+                                text="Relación con las políticas y/o planes del gobierno nacional y/o provincial. Mencionar la relación del objetivo del proyecto con las estrategias provinciales de desarrollo y con los objetivos de desarrollo sustentable (ODS) priorizados por la República Argentina en el marco de la Agenda 2030 del Desarrollo Sustentable de Naciones Unidas."
+                            />
+                        </label>
+                        <Textarea name="alineamiento estratégico" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label class="text-gray-700 flex items-center gap-2">
+                            9. articulación con otros actores
+                        </label>
+
+                        <label for="actores de proyecto">
+                            Seleccione con cuáles actores le interesa articular
+                            su proyecto:
+                        </label>
+                        <Select name="actores de proyecto">
+                            <option value="" selected hidden></option>
+                            <option value="universidades">Universidades</option>
+                            <option value="gobierno">Gobierno</option>
+                            <option value="instituciones científicas">
+                                Instituciones Científicas
+                            </option>
+                            <option value="empresas">Empresas</option>
+                            <option value="emprendedores">Emprendedores</option>
+                            <option value="cámaras empresariales">
+                                Cámaras Empresariales
+                            </option>
+                            <option value="otros">Otros</option>
+                        </Select>
+
+                        <label for="actores">
+                            Especifique cuáles son los actores:
+                        </label>
+                        <Input type="text" name="actores" />
+
+                        <label for="tipo de vínculo">
+                            Seleccione con cuáles actores le interesa articular
+                            su proyecto:
+                        </label>
+                        <Select name="tipo de vínculo">
+                            <option value="" selected hidden></option>
+                            <option value="tengo un vínculo">
+                                Tengo un vínculo
+                            </option>
+                            <option value="requiero apoyo del polo">
+                                Requiero apollo del Polo
+                            </option>
+                        </Select>
+
+                        <label for="detalle de articulación">
+                            Detalle de la articulación solicitada:
+                        </label>
+                        <Input type="text" name="detalle de articulación" />
+
+                        <label for="proyectos relacionados">
+                            Mencione si existen proyectos complementarios,
+                            concurrentes, similares, o sustitutos, y su relación
+                            con ellos.
+                        </label>
+                        <Textarea name="proyectos relacionados" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label
+                            for="responsable"
+                            class="text-gray-700 flex items-center gap-2"
+                        >
+                            10. Responsable
+                            <Details
+                                text="Datos de contacto del organismo ejecutor y persona responsable. Incluir la organización propuesta para la ejecución del proyecto y marco institucional en el que se inserta (unidades de organización de la Provincia involucradas, organismo responsable y mecanismos de coordinación o articulación interinstitucional previstos). Mencionar la experiencia de las instituciones involucradas en ejecución de proyectos y en la temática que aborda el mismo. Explicitar si el proyecto será ejecutado por un equipo multidisciplinario."
+                            />
+                        </label>
+                        <Textarea name="responsable" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <p class="text-red-700">
+                            Una vez que la <span class="font-semibold"
+                                >Idea Proyecto</span
+                            > se derive a la modalidad de <span
+                                class="font-semibold">Proyecto</span
+                            > se solicitarán más datos.
+                        </p>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <Button variant="secondary">
+                            Enviar
+                            <Send
+                                styles="text-red-500 w-5 h-5 group-hover:text-white transition-color duration-150"
+                                stroke="1.5"
+                            />
+                        </Button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
