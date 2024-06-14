@@ -1,4 +1,5 @@
 ---
+import Hero404 from "@/components/ui/svgs/Hero404.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const title = "Oportunidades Tecno";
@@ -7,5 +8,10 @@ const title = "Oportunidades Tecno";
 <BaseLayout title={title}>
     <section class="h-full w-[1280px] flex flex-col justify-center py-10">
         <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <div class="h-full w-full flex items-center justify-center">
+            <div class="w-1/2 h-1/2 flex justify-center">
+                <Hero404 />
+            </div>
+        </div>
     </section>
 </BaseLayout>

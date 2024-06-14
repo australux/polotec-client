@@ -1,11 +1,18 @@
 ---
+import Calendar from "@/components/ui/svgs/Calendar.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const title = "Calendario";
 ---
 
 <BaseLayout title={title}>
-    <section class="h-full w-[1280px] flex flex-col justify-center py-10">
+    <section class="h-full w-[1280px] flex flex-col justify-center py-10 gap-6">
         <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
+        <div class="h-full w-full flex flex-col items-center justify-center">
+            <h2 class="text-xl font-medium">Próximamente...</h2>
+            <div class="w-2/5 h-2/5 flex justify-center">
+                <Calendar />
+            </div>
+        </div>
     </section>
 </BaseLayout>
