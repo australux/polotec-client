@@ -5,8 +5,12 @@ import CourseCard from "@/components/CourseCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Slideshow } from "@/components/Slideshow";
 import Sponsors from "@/components/Sponsors.astro";
+import { getCollection } from "astro:content";
 
 const title = "Polo Tecnológico de La Rioja";
+
+const allNews = await getCollection("news");
+const allCourses = await getCollection("courses");
 ---
 
 <BaseLayout title={title}>
@@ -31,10 +35,17 @@ const title = "Polo Tecnológico de La Rioja";
         >
             <h2 class="text-white text-5xl font-bold">Novedades</h2>
             <div class="grid grid-cols-2 items-center gap-4">
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
-                <NewsCard />
+                {
+                    allNews.map((news) => (
+                        <NewsCard
+                            title={news.data.title}
+                            headline={news.data.headline}
+                            url={news.slug}
+                            src={news.data.image.src}
+                            alt={news.data.image.alt}
+                        />
+                    ))
+                }
             </div>
 
             <div>
@@ -44,11 +55,18 @@ const title = "Polo Tecnológico de La Rioja";
             <h2 class="text-white text-5xl font-bold">
                 Plan de Formación con Empleabilidad 2024
             </h2>
-            <div class="grid grid-cols-4 gap-4">
-                <CourseCard />
-                <CourseCard />
-                <CourseCard />
-                <CourseCard />
+            <div class="grid grid-cols-2 gap-4">
+                {
+                    allCourses.map((course) => (
+                        <CourseCard
+                            title={course.data.title}
+                            description={course.data.description}
+                            url={course.data.url}
+                            src={course.data.image.src}
+                            alt={course.data.image.alt}
+                        />
+                    ))
+                }
             </div>
         </div>
     </section>

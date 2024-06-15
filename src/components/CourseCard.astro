@@ -1,28 +1,35 @@
 ---
 import { Image } from "astro:assets";
+
+interface Props {
+    title: string;
+    description: string;
+    url: string;
+    src: string;
+    alt: string;
+}
+
+const { title, description, url, src, alt } = Astro.props;
 ---
 
 <a
-    href=""
+    href={url}
+    target="_blank"
     class="flex flex-col gap-2 p-4 rounded-xl hover:bg-red-400 hover:drop-shadow-md transition-all duration-200"
 >
     <Image
-        src="https://utfs.io/f/b631d664-a738-4c37-afa2-b6e5dbd7487e-jl0b2g.jpeg"
-        alt="flyer del curso de inglés técnico"
+        src={src}
+        alt={alt}
         width={100}
         height={100}
-        class="rounded-lg aspect-square h-full w-full"
+        class="rounded-lg aspect-square h-auto w-auto"
     />
     <div class="flex flex-col gap-2">
         <h3 class="text-xl text-zinc-50 font-medium line-clamp-2">
-            Long ass card title to make sure everything works as intended and
-            doesn't crash and burns over my damn head or some shit
+            {title}
         </h3>
         <p class="text-wrap text-zinc-200 line-clamp-5">
-            Card description something something bla bla bla bla bla more bs bla
-            bla bla is this enough thex tho? bla bla bla not enough I need more
-            text or something like that i don't know you tell me this seems to
-            not be working. maybe thi will make it work finally i hope so
+            {description}
         </p>
     </div>
 </a>

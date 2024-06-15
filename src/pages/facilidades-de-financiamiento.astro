@@ -1,18 +1,26 @@
 ---
 import OfferCard from "@/components/OfferCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
 const title = "Facilidades de Financiamiento";
+const allOffers = await getCollection("offers");
 ---
 
 <BaseLayout title={title}>
     <section class="h-full w-[1280px] flex flex-col justify-center py-10 gap-6">
         <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
         <div class="flex flex-col items-center gap-6">
-            <OfferCard />
-            <OfferCard />
-            <OfferCard />
-            <OfferCard />
+            {
+                allOffers.map((offer) => (
+                    <OfferCard
+                        title={offer.data.title}
+                        toDate={offer.data.toDate}
+                        description={offer.data.description}
+                        url={offer.data.url}
+                    />
+                ))
+            }
         </div>
     </section>
 </BaseLayout>
