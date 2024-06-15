@@ -1,11 +1,13 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
     theme: {
         extend: {
             fontFamily: {
-                inter: ["Inter", "sans-serif"],
-                work: ["Work Sans", "sans-serif"],
+                inter: ["Inter", ...defaultTheme.fontFamily.sans],
+                work: ["Work Sans", ...defaultTheme.fontFamily.sans],
             },
         },
     },
