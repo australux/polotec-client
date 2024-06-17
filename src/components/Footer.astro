@@ -1,42 +1,38 @@
 ---
 import IconLink from "./ui/IconLink.astro";
-import Envelope from "./ui/svgs/Envelope.astro";
-import Facebook from "./ui/svgs/Facebook.astro";
-import Instagram from "./ui/svgs/Instagram.astro";
-import MapPin from "./ui/svgs/MapPin.astro";
-import Twitter from "./ui/svgs/Twitter.astro";
+import { Twitter } from "./ui/SVGs";
+import { Instagram } from "./ui/SVGs";
+import { Facebook } from "./ui/SVGs";
+import { Envelope, MapPin } from "./ui/SVGs";
 
 const date = new Date();
 ---
 
 <footer class="w-full flex justify-center bg-red-500">
     <div
-        class="w-[1280px] h-[250px] grid grid-cols-[1fr_2fr_1fr] text-white py-8"
+        class="w-full h-full flex flex-col gap-6 items-center lg:max-w-[1280px] lg:h-[250px] lg:grid md:grid-cols-[1fr_2fr_1fr] text-white py-8 px-2"
     >
         <div class="flex flex-col items-start">
             <div class="flex flex-col items-center gap-4">
                 <h3 class="font-medium">Seguinos</h3>
-                <div class="flex gap-2">
+                <div class="flex gap-4">
                     <IconLink
                         href="https://www.facebook.com/profile.php?id=100083851852563"
                     >
                         <Facebook
-                            stroke="1.5"
-                            styles="h-7 text-red-500 group-hover:text-white transition-colors duration-150"
+                            className="h-7 text-red-500 group-hover:text-white transition-colors duration-150"
                         />
                     </IconLink>
                     <IconLink
                         href="https://www.instagram.com/polotecnologicolr/"
                     >
                         <Instagram
-                            stroke="1.5"
-                            styles="h-7 text-red-500 group-hover:text-white transition-colors duration-150"
+                            className="h-7 text-red-500 group-hover:text-white transition-colors duration-150"
                         />
                     </IconLink>
                     <IconLink href="https://x.com/PoloTecLR">
                         <Twitter
-                            stroke="1.5"
-                            styles="h-7 text-red-500 group-hover:text-white transition-colors duration-150"
+                            className="h-7 text-red-500 group-hover:text-white transition-colors duration-150"
                         />
                     </IconLink>
                 </div>
@@ -44,18 +40,21 @@ const date = new Date();
         </div>
         <div class="flex flex-col items-center gap-4">
             <h3 class="font-medium">Contacto</h3>
-            <div class="flex flex-col text-xs gap-8">
+            <div class="flex flex-col px-2 text-xs gap-6 md:gap-8">
                 <div class="flex flex-col gap-4">
                     <a
                         href="https://maps.app.goo.gl/dLmQAbwuL3vF5FG99"
                         target="_blank"
-                        class="inline-flex gap-1"
+                        class="inline-flex gap-1 items-center"
                     >
-                        <MapPin styles="h-4" />
+                        <MapPin className="h-5" />
                         Santa Fé y Copiapo, Ciudad de La Rioja
                     </a>
-                    <a href="mailto:info@polotec.ar" class="inline-flex gap-1">
-                        <Envelope styles="h-4" />
+                    <a
+                        href="mailto:info@polotec.ar"
+                        class="inline-flex gap-1 items-center"
+                    >
+                        <Envelope className="h-5" />
                         info@polotec.ar
                     </a>
                 </div>
@@ -68,7 +67,7 @@ const date = new Date();
                 </div>
             </div>
         </div>
-        <div class="flex justify-end">
+        <div class="flex justify-center lg:justify-end">
             <a href="https://www.larioja.gov.ar/" class="w-3/4">
                 <img
                     src="https://utfs.io/f/825f0a4c-d43b-48bb-90cd-4f3e7fac2412-o8ds9k.png"

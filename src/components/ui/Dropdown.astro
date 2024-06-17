@@ -1,6 +1,6 @@
 ---
 import Navlink from "./Navlink.astro";
-import ChevronD from "./svgs/ChevronD.astro";
+import { ChevronD } from "./SVGs";
 
 interface Props {
     text: string;
@@ -16,7 +16,7 @@ const { text, options } = Astro.props;
         class="inline-flex items-center gap-1 drop-shadow hover:cursor-pointer hover:text-red-600 transition-colors duration-100"
     >
         {text}
-        <!-- <ChevronD styles="w-4 h-4 text-red-600" stroke="2.5" /> -->
+        <ChevronD className="w-4 h-4 text-red-500" strokeWidth={2} />
     </a>
 
     <ul

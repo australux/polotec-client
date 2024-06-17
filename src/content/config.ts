@@ -26,6 +26,16 @@ const offersSchema = z.object({
     url: z.string(),
 });
 
+const authoritiesSchema = z.object({
+    name: z.string(),
+    title: z.string(),
+    email: z.string(),
+    image: z.object({
+        src: z.string(),
+        alt: z.string(),
+    }),
+});
+
 const newsCollection = defineCollection({
     type: "content",
     schema: newsShema,
@@ -41,8 +51,14 @@ const offersCollection = defineCollection({
     schema: offersSchema,
 });
 
+const authoritiesCollection = defineCollection({
+    type: "content",
+    schema: authoritiesSchema,
+});
+
 export const collections = {
     news: newsCollection,
     courses: coursesCollection,
     offers: offersCollection,
+    authorities: authoritiesCollection,
 };

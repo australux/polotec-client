@@ -1,21 +1,32 @@
 ---
 import PersonalCard from "@/components/PersonalCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const allAuthorities = await getCollection("authorities");
 
 const title = "Autoridades";
 ---
 
 <BaseLayout title={title}>
     <section
-        class="h-full w-[1280px] flex flex-col justify-center gap-10 py-10"
+        class="h-full w-full lg:max-w-[1280px] flex flex-col justify-center gap-4 py-6 lg:gap-10 lg:py-10 px-2"
     >
         <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
-        <div class="grid grid-cols-3 gap-20">
-            <PersonalCard />
-            <PersonalCard />
-            <PersonalCard />
-            <PersonalCard />
-            <PersonalCard />
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-10"
+        >
+            {
+                allAuthorities.map((entry) => (
+                    <PersonalCard
+                        src={entry.data.image.src}
+                        alt={entry.data.image.alt}
+                        name={entry.data.name}
+                        title={entry.data.title}
+                        email={entry.data.email}
+                    />
+                ))
+            }
         </div>
     </section>
 </BaseLayout>

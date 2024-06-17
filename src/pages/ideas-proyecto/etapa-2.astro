@@ -1,11 +1,10 @@
 ---
-import Button from "@/components/ui/Button.astro";
+import { Button } from "@/components/ui/Button";
 import Details from "@/components/ui/Details.astro";
 import FileInput from "@/components/ui/FileInput.astro";
-import Input from "@/components/ui/Input.astro";
+import { Send } from "@/components/ui/SVGs";
 import Select from "@/components/ui/Select.astro";
 import Textarea from "@/components/ui/Textarea.astro";
-import Send from "@/components/ui/svgs/Send.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const title = "Ideas Proyecto | Etapa 2";
@@ -15,10 +14,12 @@ const proyectos = ["Proyecto de prueba"];
 ---
 
 <BaseLayout title={title}>
-    <section class="h-full w-[1280px] flex flex-col justify-center py-10 gap-6">
+    <section
+        class="h-full lg:max-w-[1280px] flex flex-col justify-center gap-4 py-6 lg:gap-10 lg:py-10 px-2"
+    >
         <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
         <div class="flex flex-col gap-2 items-center">
-            <div class="flex flex-col items-center w-4/5">
+            <div class="flex flex-col items-center md:w-4/5">
                 <form
                     class="flex flex-col gap-8 p-8 bg-white rounded-3xl w-full"
                 >
@@ -415,8 +416,8 @@ const proyectos = ["Proyecto de prueba"];
                         <Button variant="secondary">
                             Enviar
                             <Send
-                                styles="text-red-500 w-5 h-5 group-hover:text-white transition-color duration-150"
-                                stroke="1.5"
+                                className="text-red-500 w-5 h-5 group-hover:text-white transition-color duration-150"
+                                strokeWidth="1.5"
                             />
                         </Button>
                     </div>

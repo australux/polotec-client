@@ -1,5 +1,5 @@
 ---
-import ArrowUR from "./svgs/ArrowUR.astro";
+import { ArrowUR } from "./SVGs";
 
 interface Props {
     href: string;
@@ -12,7 +12,7 @@ const { href, text } = Astro.props;
 <a href={href} class="inline-flex gap-1 drop-shadow group">
     {text}
     <ArrowUR
-        styles="w-3 h-3 text-gray-300 group-hover:text-red-500 transition-all duration-100"
-        stroke="3"
+        className="w-3 h-3 text-gray-400 group-hover:text-red-600 transition-all duration-100"
+        strokeWidth="3"
     />
 </a>

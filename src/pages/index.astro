@@ -1,11 +1,11 @@
 ---
-import Hero from "@/components/ui/svgs/Hero.astro";
 import NewsCard from "@/components/NewsCard.astro";
 import CourseCard from "@/components/CourseCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Slideshow } from "@/components/Slideshow";
 import Sponsors from "@/components/Sponsors.astro";
 import { getCollection } from "astro:content";
+import { Hero } from "@/components/ui/SVGs";
 
 const title = "Polo Tecnológico de La Rioja";
 
@@ -14,9 +14,13 @@ const allCourses = await getCollection("courses");
 ---
 
 <BaseLayout title={title}>
-    <section class="w-[1280px] grid grid-cols-[1fr_2fr] py-14">
-        <div class="h-full flex items-center">
-            <h1 class="text-8xl font-black">
+    <section
+        class="w-full lg:max-w-[1280px] grid grid-cols-1 md:grid-cols-[1fr_2fr]"
+    >
+        <div
+            class="h-full min-h-[400px] flex items-center px-2 py-14 bg-[url(https://utfs.io/f/70cc0796-523b-4368-91b8-e4e163fa0054-a8actd.svg)] bg-cover md:bg-none"
+        >
+            <h1 class="text-[3.5rem] md:text-7xl lg:text-8xl font-black">
                 Polo Tecnológico
                 <span
                     class="bg-gradient-to-r from-pink-900 to-red-500 text-transparent bg-clip-text"
@@ -24,17 +28,19 @@ const allCourses = await getCollection("courses");
                 >
             </h1>
         </div>
-        <div class="h-full w-full flex items-center">
-            <Hero styles="w-11/12 h-11/12" />
+        <div class="h-full w-full hidden md:flex items-center">
+            <Hero className="w-11/12 h-11/12" />
         </div>
     </section>
 
     <section class="w-full flex flex-col items-center py-10 bg-red-500">
         <div
-            class="w-[1280px] flex flex-col gap-12 border-x px-4 border-red-300"
+            class="w-full lg:max-w-[1280px] flex flex-col gap-6 md:gap-12 border-x px-4 border-red-300"
         >
-            <h2 class="text-white text-5xl font-bold">Novedades</h2>
-            <div class="grid grid-cols-2 items-center gap-4">
+            <h2 class="text-white text-2xl md:text-5xl font-bold">Novedades</h2>
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 items-center gap-2 md:gap-4"
+            >
                 {
                     allNews.map((news) => (
                         <NewsCard
@@ -52,10 +58,10 @@ const allCourses = await getCollection("courses");
                 <Slideshow client:visible />
             </div>
 
-            <h2 class="text-white text-5xl font-bold">
+            <h2 class="text-white text-2xl md:text-5xl font-bold">
                 Plan de Formación con Empleabilidad 2024
             </h2>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                 {
                     allCourses.map((course) => (
                         <CourseCard
@@ -71,7 +77,9 @@ const allCourses = await getCollection("courses");
         </div>
     </section>
 
-    <section class="w-[1280px] grid grid-cols-4 gap-24 pt-16 pb-24">
+    <section
+        class="w-full lg:w-[1280px] grid grid-cols-2 md:grid-cols-4 px-2 gap-20 md:gap-24 pt-16 pb-24"
+    >
         <Sponsors />
     </section>
 </BaseLayout>

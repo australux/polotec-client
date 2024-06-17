@@ -6,12 +6,18 @@ image:
     alt: "Hugo Vera, Fernando Peirano y Christian Albrecht"
 ---
 
-import Hero404 from "@/components/ui/svgs/Hero404.astro";
+import { Image } from "astro:assets";
 
 <article class="flex justify-center border-x border-red-300">
     <div class="w-4/5 flex flex-col items-center gap-4">
-        <div class="w-1/2 h-1/2 flex justify-center">
-            <Hero404 />
+        <div class="h-3/4 flex justify-center">
+            <Image
+                src="https://utfs.io/f/84e61b88-f4bb-4743-84ca-bed5f4ca3a55-oey968.svg"
+                alt="Page not found"
+                width={100}
+                height={100}
+                class="w-full"
+            />
         </div>
     </div>
 </article>

@@ -1,0 +1,49 @@
+---
+import Dropdown from "./ui/Dropdown.astro";
+import ExternalLink from "./ui/ExternalLink.astro";
+---
+
+<nav class="w-2/3 relative hidden lg:block">
+    <ul class="flex justify-between">
+        <li>
+            <Dropdown
+                text="Servicios"
+                options={[
+                    "calendario",
+                    "beneficios provinciales",
+                    "oportunidades tecno",
+                    "incubadora de empresas",
+                    "ideas proyecto",
+                    "facilidades de financiamiento",
+                ]}
+            />
+        </li>
+        <li>
+            <Dropdown
+                text="Institucional"
+                options={["autoridades", "acerca del polo", "contacto"]}
+            />
+        </li>
+        <li>
+            <ExternalLink
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfe8OBH78KVZ1GIIyaFAlkfTEyH0jyo5JZ2DpyY_gFY2Xfsgw/viewform"
+                text="Reg. Emprendedores"
+            />
+        </li>
+        <li>
+            <ExternalLink
+                href="https://polotec.ar/hackathon/"
+                text="Hackaton"
+            />
+        </li>
+        <li>
+            <ExternalLink
+                href="https://polotec.ar/gaming/"
+                text="Polo Gaming"
+            />
+        </li>
+        <li>
+            <ExternalLink href="http://www.polotec.ar/campus/" text="Campus" />
+        </li>
+    </ul>
+</nav>

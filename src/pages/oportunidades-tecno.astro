@@ -1,16 +1,26 @@
 ---
-import Hero404 from "@/components/ui/svgs/Hero404.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 
 const title = "Oportunidades Tecno";
 ---
 
 <BaseLayout title={title}>
-    <section class="h-full w-[1280px] flex flex-col justify-center py-10">
+    <section
+        class="h-full w-full lg:max-w-[1280px] flex flex-col justify-center gap-4 py-6 lg:gap-10 lg:py-10 px-2"
+    >
         <h1 class="text-4xl text-red-500 font-bold">{title}</h1>
         <div class="h-full w-full flex items-center justify-center">
-            <div class="w-1/2 h-1/2 flex justify-center">
-                <Hero404 />
+            <div
+                class="md:w-3/5 md:h-3/5 lg:w-2/5 lg:h-2/5 flex justify-center"
+            >
+                <Image
+                    src="https://utfs.io/f/84e61b88-f4bb-4743-84ca-bed5f4ca3a55-oey968.svg"
+                    alt="Page not found"
+                    width={100}
+                    height={100}
+                    class="w-full"
+                />
             </div>
         </div>
     </section>

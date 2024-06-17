@@ -1,14 +1,17 @@
 ---
-import Button from "@/components/ui/Button.astro";
-import ExternalLink from "./ui/ExternalLink.astro";
-import Dropdown from "./ui/Dropdown.astro";
+import { Hamburger } from "./ui/SVGs";
+import { Button } from "./ui/Button";
+import NavigationDesktop from "./NavigationDesktop.astro";
+import NavigationMobile from "./NavigationMobile.astro";
 ---
 
 <header
-    class="w-full flex justify-center transition-colors duration-500"
+    class="w-full flex justify-center transition-colors duration-500 relative"
     id="header"
 >
-    <div class="w-[1280px] h-[100px] flex items-center justify-between">
+    <div
+        class="w-full lg:max-w-[1280px] h-[75px] md:h-[100px] flex items-center justify-between px-4"
+    >
         <a href="/" class="h-full w-auto">
             <img
                 src="https://utfs.io/f/aa3ce997-de98-408a-8812-dc2603f549c2-1zbfv.png"
@@ -16,60 +19,38 @@ import Dropdown from "./ui/Dropdown.astro";
                 class="h-full"
             />
         </a>
-        <nav class="w-2/3 relative">
-            <ul class="flex justify-between">
-                <li>
-                    <Dropdown
-                        text="Servicios"
-                        options={[
-                            "calendario",
-                            "beneficios provinciales",
-                            "oportunidades tecno",
-                            "incubadora de empresas",
-                            "ideas proyecto",
-                            "facilidades de financiamiento",
-                        ]}
-                    />
-                </li>
-                <li>
-                    <Dropdown
-                        text="Institucional"
-                        options={["autoridades", "acerca del polo", "contacto"]}
-                    />
-                </li>
-                <li>
-                    <ExternalLink
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSfe8OBH78KVZ1GIIyaFAlkfTEyH0jyo5JZ2DpyY_gFY2Xfsgw/viewform"
-                        text="Reg. de Emprendedores"
-                    />
-                </li>
-                <li>
-                    <ExternalLink
-                        href="https://polotec.ar/hackathon/"
-                        text="Hackaton"
-                    />
-                </li>
-                <li>
-                    <ExternalLink
-                        href="https://polotec.ar/gaming/"
-                        text="Polo Gaming"
-                    />
-                </li>
-                <li>
-                    <ExternalLink
-                        href="http://www.polotec.ar/campus/"
-                        text="Campus"
-                    />
-                </li>
-            </ul>
-        </nav>
-        <Button variant="primary">Iniciar Sesión</Button>
+        <NavigationDesktop />
+        <NavigationMobile />
+        <button id="open-btn" class="lg:hidden">
+            <Hamburger className="text-red-400 h-12 w-12" />
+        </button>
+        <div class="hidden lg:block">
+            <Button id="login">Iniciar Sesión</Button>
+        </div>
     </div>
 </header>
 
-<!-- <script>
-    const nav = document.querySelector("#header");
-    window.onscroll = () => {
-        nav?.classList.toggle("bg-[#fee2e2]", window.scrollY > 40);
-    };
-</script> -->
+<script>
+    const btn = document.querySelector("#login");
+    btn?.addEventListener("click", () => {
+        location.href = "/login";
+    });
+</script>
+
+<script is:inline data-astro-rerun>
+    document.addEventListener("astro:page-load", () => {
+        const menu = document.querySelector("#menu");
+        const openBtn = document.querySelector("#open-btn");
+        const closeBtn = document.querySelector("#close-btn");
+
+        openBtn?.addEventListener("click", () => {
+            menu?.classList.remove("-left-full");
+            menu?.classList.add("-left-0");
+        });
+
+        closeBtn?.addEventListener("click", () => {
+            menu?.classList.remove("-left-0");
+            menu?.classList.add("-left-full");
+        });
+    });
+</script>
