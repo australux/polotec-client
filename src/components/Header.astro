@@ -24,14 +24,14 @@ import NavigationMobile from "./NavigationMobile.astro";
         <button id="open-btn" class="lg:hidden">
             <Hamburger className="text-red-400 h-12 w-12" />
         </button>
-        <div class="hidden lg:block" id="login">
+        <div class="hidden lg:block" id="login-desktop">
             <Button>Iniciar Sesión</Button>
         </div>
     </div>
 </header>
 
 <script>
-    const btn = document.querySelector("#login");
+    const btn = document.querySelector("#login-desktop");
     btn?.addEventListener("click", () => {
         location.href = "/login";
     });

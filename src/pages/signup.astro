@@ -1,0 +1,81 @@
+---
+import { Button } from "@/components/ui/Button";
+import Input from "@/components/ui/Input.astro";
+import Select from "@/components/ui/Select.astro";
+import AuthLayout from "@/layouts/AuthLayout.astro";
+
+const title = "Crear Cuenta";
+---
+
+<AuthLayout title={title}>
+    <div
+        class="p-2 h-screen w-screen flex flex-col justify-center items-center"
+    >
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-4 p-2 md:p-6 w-full h-full md:w-10/12 md:h-10/12"
+        >
+            <div
+                class="bg-white rounded-xl py-16 px-4 md:p-4 lg:p-8 flex flex-col justify-between shadow-md"
+            >
+                <h2 class="text-4xl font-medium">Registro</h2>
+
+                <form class="flex flex-col gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label for="name" class="pl-2"> Nombre: </label>
+                        <Input type="text" name="name" />
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="DNI" class="pl-2">
+                            DNI (sin puntos):
+                        </label>
+                        <Input type="number" name="DNI" />
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="tel" class="pl-2">
+                            Teléfono (solo números):
+                        </label>
+                        <Input type="number" name="tel" />
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="gender" class="pl-2"> Género: </label>
+                        <Select name="gender">
+                            <option value="" selected hidden></option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Trans">Trans</option>
+                            <option value="No Binarie">No Binarie</option>
+                            <option value="Otro">Otro</option>
+                            <option value="Prefiero no decirlo">
+                                Prefiero no decirlo
+                            </option>
+                        </Select>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="email" class="pl-2"> Email: </label>
+                        <Input type="email" name="email" />
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+                        <label for="password" class="pl-2">Contraseña:</label>
+                        <Input type="password" name="password" />
+                    </div>
+
+                    <div>
+                        <Button variant="secondary"> Acceder </Button>
+                    </div>
+                </form>
+                <div></div>
+            </div>
+            <div class="hidden md:flex rounded-xl overflow-hidden shadow-md">
+                <img
+                    src="https://www.elindependiente.com.ar/elindependiente/1.0/img/943310304.jpg"
+                    alt="polo tecnológico"
+                />
+            </div>
+        </div>
+    </div>
+</AuthLayout>

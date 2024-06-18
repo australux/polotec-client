@@ -1,5 +1,6 @@
 ---
 // import Dropdown from "./ui/Dropdown.astro";
+import { Button } from "./ui/Button";
 import { Dropdown } from "./ui/Dropdown";
 import ExternalLink from "./ui/ExternalLink.astro";
 import { Close } from "./ui/SVGs";
@@ -61,6 +62,16 @@ import { Close } from "./ui/SVGs";
                     text="Campus"
                 />
             </li>
+            <div class="lg:hidden" id="login-mobile">
+                <Button>Iniciar Sesión</Button>
+            </div>
         </ul>
     </div>
 </nav>
+
+<script>
+    const btn = document.querySelector("#login-mobile");
+    btn?.addEventListener("click", () => {
+        location.href = "/login";
+    });
+</script>
