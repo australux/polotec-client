@@ -20,7 +20,7 @@ export function Dropdown({ text, options, ...props }: DropdownProps) {
                 onClick={() => setOpen(!open)}
             >
                 {text}
-                <ChevronD className="w-4 h-4 text-red-500" strokeWidth={2} />
+                <ChevronD className="w-4 h-4 text-red-500" strokeWidth={3} />
             </p>
 
             <ul
