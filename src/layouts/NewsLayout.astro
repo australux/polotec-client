@@ -24,7 +24,7 @@ const { frontmatter } = Astro.props;
         class="h-full lg:max-w-[1280px] flex flex-col justify-center gap-4 py-6 lg:gap-10 lg:py-10 px-2"
     >
         <div
-            class="h-[300px] md:h-[450px] lg:h-[600px] flex flex-col items-center justify-center rounded-xl relative overflow-clip"
+            class="h-[300px] md:h-[450px] lg:h-[600px] w-full flex flex-col items-center justify-center rounded-xl relative overflow-hidden"
         >
             <div
                 class="bg-zinc-950 opacity-55 h-full w-full absolute top-0 z-10"
@@ -35,7 +35,7 @@ const { frontmatter } = Astro.props;
                 alt={frontmatter.data.image.alt}
                 width={100}
                 height={100}
-                class="w-auto h-auto"
+                class="w-full h-full object-cover"
             />
             <div
                 class="w-5/6 flex flex-col gap-2 md:gap-8 absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%] z-50"
