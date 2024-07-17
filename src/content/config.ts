@@ -7,6 +7,7 @@ const newsShema = z.object({
         src: z.string(),
         alt: z.string(),
     }),
+    showcase: z.boolean(),
 });
 
 const coursesSchema = z.object({
@@ -17,6 +18,7 @@ const coursesSchema = z.object({
         src: z.string(),
         alt: z.string(),
     }),
+    active: z.boolean(),
 });
 
 const offersSchema = z.object({

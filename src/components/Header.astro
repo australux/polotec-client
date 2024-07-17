@@ -24,18 +24,11 @@ import NavigationMobile from "./NavigationMobile.astro";
         <button id="open-btn" class="lg:hidden">
             <Hamburger className="text-red-400 h-12 w-12" />
         </button>
-        <div class="hidden lg:block" id="login-desktop">
+        <a href="/login" class="hidden lg:block">
             <Button>Iniciar Sesión</Button>
-        </div>
+        </a>
     </div>
 </header>
-
-<script>
-    const btn = document.querySelector("#login-desktop");
-    btn?.addEventListener("click", () => {
-        location.href = "/login";
-    });
-</script>
 
 <script is:inline data-astro-rerun>
     document.addEventListener("astro:page-load", () => {

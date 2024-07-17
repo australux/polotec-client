@@ -1,6 +1,7 @@
 ---
 import { Envelope, MapPin, Phone } from "@/components/ui/SVGs";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 
 const title = "Contacto";
 ---
@@ -27,9 +28,10 @@ const title = "Contacto";
                     info@polotec.ar
                 </p>
             </div>
-            <img
-                src="https://www.elindependiente.com.ar/elindependiente/1.0/img/943310304.jpg"
+            <Image
+                src="https://utfs.io/f/48951d14-9d05-4eed-b36a-333dad2414d3-6jtb1.jpg"
                 alt="polo tecnológico"
+                inferSize
                 class="rounded-lg"
             />
         </div>

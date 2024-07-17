@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/Button";
 import Input from "@/components/ui/Input.astro";
 import AuthLayout from "@/layouts/AuthLayout.astro";
+import { Image } from "astro:assets";
 
 const title = "Iniciar Sesión";
 ---
@@ -42,9 +43,10 @@ const title = "Iniciar Sesión";
                 </p>
             </div>
             <div class="hidden md:flex rounded-xl overflow-hidden shadow-md">
-                <img
-                    src="https://www.elindependiente.com.ar/elindependiente/1.0/img/943310304.jpg"
+                <Image
+                    src="https://utfs.io/f/48951d14-9d05-4eed-b36a-333dad2414d3-6jtb1.jpg"
                     alt="polo tecnológico"
+                    inferSize
                 />
             </div>
         </div>

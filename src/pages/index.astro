@@ -11,6 +11,10 @@ const title = "Polo Tecnológico de La Rioja";
 
 const allNews = await getCollection("news");
 const allCourses = await getCollection("courses");
+const showcasedNews = allNews.filter((news) => news.data.showcase === true);
+const activeCourses = allCourses.filter(
+    (course) => course.data.active === true
+);
 ---
 
 <BaseLayout title={title}>
@@ -42,7 +46,7 @@ const allCourses = await getCollection("courses");
                 class="grid grid-cols-1 lg:grid-cols-2 items-center gap-2 md:gap-4"
             >
                 {
-                    allNews.map((news) => (
+                    showcasedNews.map((news) => (
                         <NewsCard
                             title={news.data.title}
                             headline={news.data.headline}
@@ -63,7 +67,7 @@ const allCourses = await getCollection("courses");
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                 {
-                    allCourses.map((course) => (
+                    activeCourses.map((course) => (
                         <CourseCard
                             title={course.data.title}
                             description={course.data.description}
