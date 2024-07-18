@@ -19,12 +19,12 @@ const activeCourses = allCourses.filter(
 
 <BaseLayout title={title}>
     <section
-        class="w-full lg:max-w-[1280px] grid grid-cols-1 lg:grid-cols-[1fr_2fr]"
+        class="w-full max-w-screen-xl grid grid-cols-1 lg:grid-cols-[1fr_2fr]"
     >
         <div
-            class="h-full min-h-[50vh] flex items-center justify-center px-2 py-14 bg-[url(https://utfs.io/f/70cc0796-523b-4368-91b8-e4e163fa0054-a8actd.svg)] bg-cover lg:bg-none"
+            class="h-full min-h-[60vh] flex items-center justify-center px-2 py-14 bg-[url(https://utfs.io/f/70cc0796-523b-4368-91b8-e4e163fa0054-a8actd.svg)] bg-cover lg:bg-none"
         >
-            <h1 class="text-[3.5rem] md:text-7xl lg:text-8xl font-black">
+            <h1 class="text-6xl lg:text-8xl font-black">
                 Polo Tecnológico
                 <span
                     class="bg-gradient-to-r from-pink-900 to-red-500 text-transparent bg-clip-text"
@@ -39,7 +39,7 @@ const activeCourses = allCourses.filter(
 
     <section class="w-full flex flex-col items-center py-10 bg-red-500">
         <div
-            class="w-full lg:max-w-[1280px] flex flex-col gap-6 md:gap-12 border-x px-4 border-red-300"
+            class="w-full max-w-screen-xl flex flex-col gap-6 md:gap-12 border-x px-4 border-red-300"
         >
             <h2 class="text-white text-2xl md:text-5xl font-bold">Novedades</h2>
             <div
@@ -82,7 +82,7 @@ const activeCourses = allCourses.filter(
     </section>
 
     <section
-        class="w-full lg:max-w-[1280px] grid grid-cols-2 md:grid-cols-4 px-2 gap-20 md:gap-24 pt-16 pb-24"
+        class="w-full max-w-screen-xl grid grid-cols-2 md:grid-cols-4 px-2 gap-20 md:gap-24 pt-16 pb-24"
     >
         <Sponsors />
     </section>
